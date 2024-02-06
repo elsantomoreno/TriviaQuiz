@@ -30,47 +30,48 @@ $result = mysqlconnection::getSelection($sqlquerry);
 </head>
 
 <body>
+  <main>
 
-  <div class="index-container-1">
-    <header>QUIZ</header>
-  </div>
-  <div class="index-container-2">
-    <img src="./quiz.png"></img>
-  </div>
-  <div class="index-container-3">
+    <div class="index-container-1">
+      <header>QUIZ</header>
+    </div>
+    <div class="index-container-2">
+      <img src="./quiz.png"></img>
+    </div>
+    <div class="index-container-3">
 
-    <label id="topicid" for="topic">Choose your topic for your quiz and number of questions?</label>
-
-
-    <form id="indexform" action="./utilities.php" method="post">
-      <div class="index-container-3-form">
-        <label for="selectid" style="font-size: 30px;">Topic:</label>
-        <select id="selectid" name="topic">
-          <?php
-          if ($result->rowCount() > 0) {
-            while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
-
-              $row = $row['topic'];
-              echo "<option value='$row'>$row</option>";
-            }
-          } ?>
-        </select>
-      </div>
-      <div class="index-container-3-numberbutton">
-        <label for="quantity" style="font-size: 30px;">Number:</label>
-        <input type="number" id="quantity" name="quantity" min="1" max="100" required>
-
-      </div>
-      <div class="index-container-3-startbutton">
-        <input id="indexbutton" type="submit" value="Start">
-      </div>
+      <label id="topicid" for="topic">Choose your topic for your quiz and number of questions?</label>
 
 
-    </form>
+      <form id="indexform" action="./utilities.php" method="post">
+        <div class="index-container-3-form">
+          <label for="selectid" style="font-size: 30px;">Topic:</label>
+          <select id="selectid" name="topic">
+            <?php
+            if ($result->rowCount() > 0) {
+              while ($row = $result->fetch(PDO::FETCH_ASSOC)) {
 
-  </div>
+                $row = $row['topic'];
+                echo "<option value='$row'>$row</option>";
+              }
+            } ?>
+          </select>
+        </div>
+        <div class="index-container-3-numberbutton">
+          <label for="quantity" style="font-size: 30px;">Number:</label>
+          <input type="number" id="quantity" name="quantity" min="1" max="100" required>
+
+        </div>
+        <div class="index-container-3-startbutton">
+          <input id="indexbutton" type="submit" value="Start">
+        </div>
 
 
+      </form>
+
+    </div>
+
+  </main>
 </body>
 
 </html>

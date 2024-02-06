@@ -17,16 +17,22 @@ if (session_status() === PHP_SESSION_NONE) {
 
 <body>
 
-    <div class="container">
-        <header>QUIZ</header>
-        <img src="./quiz.png" width="150" height="200"></img>
 
+    <main>
+        <div class="index-container-1">
+            <header>QUIZ</header>
 
-    </div>
-    <div class="inputparm">
-        <p class="total">Total points:</p>
-        <p class="total"><?php echo $_SESSION["points"] ?></p>
-    </div>
+        </div>
+        <div class="result-container-2">
+            <p>QUIZ FINISHED</p>
+
+        </div>
+        <div class="result-container-1">
+            <p class="totaltext"><?php echo $_SESSION['mark'] ?></p>
+            <p class="total">Total points:</p>
+            <p class="total"><?php echo $_SESSION["points"] ?></p>
+        </div>
+    </main>
 </body>
 
 </html>

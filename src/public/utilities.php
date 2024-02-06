@@ -4,7 +4,7 @@ if (session_status() === PHP_SESSION_NONE) {
 
   session_start();
 }
-
+$numberOfquestions = 0;
 if (!isset($_SESSION["points"])) $_SESSION["points"] = 0;
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
@@ -48,7 +48,16 @@ $_SESSION["counter"] = $_SESSION["counter"] + 1;
 
 
 if ($_SESSION["counter"] <= $_SESSION['quantity'] + 1) {
+
   header("Location:./questions.php");
 } else {
+  $total = $_SESSION['points'];
+  $totalquestions = $_SESSION['quantity'];
+
+  $mark = "You have achieved a total of $total points out of $totalquestions";
+
+  $_SESSION['mark'] = $mark;
+
+
   header("Location:./result.php");
 }
